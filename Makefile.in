@@ -1,0 +1,23 @@
+CC = @CC@
+VERSION = @VERSION@
+CFLAGS = @CFLAGS@
+LIBS = @LIBS@
+INSTALL=@INSTALL@
+prefix=@prefix@
+bindir=$(prefix)@bindir@
+DESTDIR=
+FLAGS=$(CFLAGS) @DEFS@
+OBJ=cddb.o
+
+all: $(OBJ) main.c
+	@cd libUseful-2.0; $(MAKE)
+	$(CC) $(FLAGS) -o cd-command $(LIBS) $(OBJ) main.c libUseful-2.0/libUseful-2.0.a 
+
+cddb.o: cddb.c cddb.h
+	$(CC) -c cddb.c
+
+clean:
+	@rm -f cd-command *.o libUseful-2.0/*.o libUseful-2.0/*.a libUseful-2.0/*.so
+
+install:
+	$(INSTALL) cd-command $(bindir)

@@ -1,0 +1,7 @@
+cd-command is a primitive command-line CD player/ripper. It can do CDDB lookups to get the names of tracks, and has a caching system so that it can remember lookups even when offline. It can rip to .wav file or use an external encoder program.
+
+Full details of usage can be found by ./cd-command -?
+
+Compilation should just be the usual:
+
+./configure; make 
