@@ -21,3 +21,7 @@ clean:
 
 install:
 	$(INSTALL) cd-command $(bindir)
+
+
+test: libUseful.so
+	-echo "No tests written yet"
